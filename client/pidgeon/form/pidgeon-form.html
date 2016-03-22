@@ -1,0 +1,14 @@
+<div>
+    <h1>This is a pidgeon form!</h1>
+    <form [ngFormModel]="pidgeonForm" #f="ngForm" (submit)="save(f.value)">
+        <label>Number</label>
+        <input type="text" ngControl="number">
+        <label>Color</label>
+        <input type="text" ngControl="color">
+        <label>Sex</label>
+        <input type="text" ngControl="sex">
+        <label>Race</label>
+        <input type="text" ngControl="race">
+        <button>Add</button>
+    </form>
+</div>
