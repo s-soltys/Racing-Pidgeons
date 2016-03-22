@@ -1,0 +1,1 @@
+export var Pidgeons = new Mongo.Collection('pidgeons');
