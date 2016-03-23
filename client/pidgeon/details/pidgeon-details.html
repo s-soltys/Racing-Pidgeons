@@ -1,5 +1,16 @@
-<header>
-    <a [routerLink]="['/PidgeonList']">Back</a>
-    <h2>{{ pidgeon._id }}</h2>
-    <p>{{ pidgeon.number }}</p>
-</header>
+<div>
+    <header>
+        <a [routerLink]="['/PidgeonList']">Back</a>
+    </header>
+    <form (submit)="save(pidgeon)">
+        <label>Number</label>
+        <input type="text" [(ngModel)]="pidgeon.number">
+        <label>Color</label>
+        <input type="text" [(ngModel)]="pidgeon.color">
+        <label>Sex</label>
+        <input type="text" [(ngModel)]="pidgeon.sex">
+        <label>Race</label>
+        <input type="text" [(ngModel)]="pidgeon.race">
+        <button type="submit">Save</button>
+    </form>
+</div>

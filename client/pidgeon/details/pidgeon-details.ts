@@ -17,4 +17,8 @@ export class PidgeonDetails {
         var pidgeonId = params.get('pidgeonId');
         this.pidgeon = Pidgeons.findOne(pidgeonId);
     }
+    
+    save (pidgeon: any){
+        Pidgeons.update(pidgeon._id, { $set: pidgeon });
+    }
 }
