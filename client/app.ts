@@ -12,8 +12,8 @@ import {PidgeonDetails} from 'client/pidgeon/details/pidgeon-details';
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    { path: '/', as: 'PidgeonList', component: PidgeonList },
-    { path: '/pidgeon/:pidgeonId', as: 'PidgeonDetails', component: PidgeonDetails }
+    { path: '/', name: 'PidgeonList', component: PidgeonList },
+    { path: '/pidgeon/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails }
 ])
 class RacingPidgeons { }
 
