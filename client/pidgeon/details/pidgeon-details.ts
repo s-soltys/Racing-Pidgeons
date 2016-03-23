@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {Pidgeons} from '../../../collections/pidgeons';
+import {Pidgeons, Pidgeon} from '../../../collections/pidgeons';
 import {RouteParams} from 'angular2/router';
 import {RouterLink} from 'angular2/router';
 
@@ -11,7 +11,7 @@ import {RouterLink} from 'angular2/router';
   directives: [RouterLink]
 })
 export class PidgeonDetails {
-    pidgeon: Object;
+    pidgeon: Pidgeon;
     
     constructor (params: RouteParams) {
         var pidgeonId = params.get('pidgeonId');

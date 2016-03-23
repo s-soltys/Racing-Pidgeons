@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {Pidgeons} from '../../../collections/pidgeons';
+import {Pidgeons, Pidgeon} from '../../../collections/pidgeons';
 import {PidgeonForm} from '../form/pidgeon-form';
 import {RouterLink} from 'angular2/router';
 
@@ -11,7 +11,7 @@ import {RouterLink} from 'angular2/router';
     directives: [PidgeonForm, RouterLink]
 })
 export class PidgeonList {
-    pidgeons: Mongo.Cursor<Object>;
+    pidgeons: Mongo.Cursor<Pidgeon>;
     
     constructor () {
         this.pidgeons = Pidgeons.find();

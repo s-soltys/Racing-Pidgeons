@@ -1,6 +1,6 @@
 import {Component, View} from 'angular2/core';
 import {FormBuilder, Control, ControlGroup, Validators} from 'angular2/common';
-import {Pidgeons} from '../../../collections/pidgeons';
+import {Pidgeons, Pidgeon} from '../../../collections/pidgeons';
 
 @Component({
     selector: 'pidgeon-form'
