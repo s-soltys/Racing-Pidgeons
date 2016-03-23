@@ -18,7 +18,7 @@ export class PidgeonDetails {
         this.pidgeon = PidgeonCollection.findOne(pidgeonId);
     }
     
-    save (pidgeon: any){
+    save (pidgeon: Pidgeon){
         PidgeonCollection.update(pidgeon._id, { $set: pidgeon });
     }
 }

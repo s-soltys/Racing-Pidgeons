@@ -21,7 +21,7 @@ export class PidgeonForm {
         });
     };
 
-    save(pidgeon) {
+    save(pidgeon: Pidgeon) {
         if (!this.pidgeonForm.valid) return;
         PidgeonCollection.insert(pidgeon);
         this.clear();

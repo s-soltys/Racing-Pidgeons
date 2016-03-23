@@ -1,21 +1,15 @@
-import {PidgeonCollection} from 'collections/pidgeons';
+import {PidgeonCollection, Pidgeon} from 'collections/pidgeons';
 
 export function loadPidgeons() {
     if (PidgeonCollection.find().count() >= 0) return;
 
-    var pidgeons = [
-        {
-            'number': '0123gdgheihgerg'
-        },
-        {
-            'number': 'X024dfgDD'
-        },
-        {
-            'number': 's2fs-342-gdf5-4523'
-        }
+    var pidgeons: Pidgeon[] = [
+        { 'number': '000', sex: 'X', color: 'NA' },
+        { 'number': '001', sex: 'X', color: 'NA' },
+        { 'number': '002', sex: 'X', color: 'NA' }
     ];
-
-    for (var i = 0; i < pidgeons.length; i++) {
-        //PidgeonCollection.insert(pidgeons[i]);
-    }
+    
+    pidgeons.forEach(pidgeon => {
+        PidgeonCollection.insert(pidgeon);
+    });
 };
