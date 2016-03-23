@@ -1,7 +1,6 @@
-export var Pidgeons = new Mongo.Collection<Pidgeon>('pidgeons');
+export const PidgeonCollection = new Mongo.Collection<Pidgeon>('pidgeons');
 
-export interface Pidgeon
-{
+export interface Pidgeon {
     _id?: string;
     number: string;
     sex: string;

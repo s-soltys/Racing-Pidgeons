@@ -1,7 +1,7 @@
-import {Pidgeons} from 'collections/pidgeons';
+import {PidgeonCollection} from 'collections/pidgeons';
 
 export function loadPidgeons() {
-    if (Pidgeons.find().count() >= 0) return;
+    if (PidgeonCollection.find().count() >= 0) return;
 
     var pidgeons = [
         {
@@ -16,6 +16,6 @@ export function loadPidgeons() {
     ];
 
     for (var i = 0; i < pidgeons.length; i++) {
-        Pidgeons.insert(pidgeons[i]);
+        //PidgeonCollection.insert(pidgeons[i]);
     }
 };

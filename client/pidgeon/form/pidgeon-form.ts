@@ -1,6 +1,6 @@
 import {Component, View} from 'angular2/core';
 import {FormBuilder, Control, ControlGroup, Validators} from 'angular2/common';
-import {Pidgeons, Pidgeon} from '../../../collections/pidgeons';
+import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 
 @Component({
     selector: 'pidgeon-form'
@@ -23,7 +23,7 @@ export class PidgeonForm {
 
     save(pidgeon) {
         if (!this.pidgeonForm.valid) return;
-        Pidgeons.insert(pidgeon);
+        PidgeonCollection.insert(pidgeon);
         this.clear();
     };
 

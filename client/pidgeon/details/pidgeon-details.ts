@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {Pidgeons, Pidgeon} from '../../../collections/pidgeons';
+import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {RouteParams} from 'angular2/router';
 import {RouterLink} from 'angular2/router';
 
@@ -15,10 +15,10 @@ export class PidgeonDetails {
     
     constructor (params: RouteParams) {
         var pidgeonId = params.get('pidgeonId');
-        this.pidgeon = Pidgeons.findOne(pidgeonId);
+        this.pidgeon = PidgeonCollection.findOne(pidgeonId);
     }
     
     save (pidgeon: any){
-        Pidgeons.update(pidgeon._id, { $set: pidgeon });
+        PidgeonCollection.update(pidgeon._id, { $set: pidgeon });
     }
 }
