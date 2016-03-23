@@ -1,22 +1,23 @@
-import {Component, View, NgZone} from 'angular2/core';
+import {Component, View, NgZone, provide} from 'angular2/core';
 import {bootstrap} from 'angular2-meteor';
-import {Pidgeons} from '../collections/pidgeons';
-import {PidgeonForm} from './pidgeon/form/pidgeon-form';
+import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig, APP_BASE_HREF} from 'angular2/router';
+import {PidgeonList} from 'client/pidgeon/list/pidgeon-list';
+import {PidgeonDetails} from 'client/pidgeon/details/pidgeon-details';
 
 @Component({
     selector: 'app'
 })
 @View({
-    templateUrl: 'client/pidgeon/list/pidgeon-list.html',
-    directives: [PidgeonForm]
+    template: '<router-outlet>',
+    directives: [ROUTER_DIRECTIVES]
 })
-class RacingPidgeons
-{
-    pidgeons: Mongo.Cursor<Object>;
-    
-    constructor (zone: NgZone) {
-        this.pidgeons = Pidgeons.find();
-    }
-}
- 
-bootstrap(RacingPidgeons);
+@RouteConfig([
+    { path: '/', as: 'PidgeonList', component: PidgeonList },
+    { path: '/pidgeon/:pidgeonId', as: 'PidgeonDetails', component: PidgeonDetails }
+])
+class RacingPidgeons { }
+
+bootstrap(
+    RacingPidgeons,
+    [ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]
+    );

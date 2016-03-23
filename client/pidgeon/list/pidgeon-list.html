@@ -2,8 +2,9 @@
     <pidgeon-form></pidgeon-form>
     <ul>
         <li *ngFor="#pidgeon of pidgeons">
-            {{ pidgeon.number }}
-            {{ pidgeon._id }}
+            <a [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">{{ pidgeon._id }}</a>
+            <span>{{ pidgeon.number }}</span>
+            <span>{{ pidgeon._id }}</span>
         </li>
     </ul>
 </div>
