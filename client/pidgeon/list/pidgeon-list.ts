@@ -25,4 +25,8 @@ export class PidgeonList extends MeteorComponent {
     remove (pidgeon: Pidgeon){
         PidgeonCollection.remove({ _id: pidgeon._id });
     }
+    
+    search (searchtext: string) {
+        this.pidgeons = PidgeonCollection.find({ number: searchtext });
+    }
 }
