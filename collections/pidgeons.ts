@@ -6,3 +6,18 @@ export interface Pidgeon {
     sex: string;
     color: string;
 }
+
+PidgeonCollection.allow({
+  insert: function(userId: string, pidgeon: Pidgeon) {
+    var user = Meteor.user();
+    return !!user;
+  },
+  update: function(userId: string, pidgeon: Pidgeon) {
+    var user = Meteor.user();
+    return !!user;
+  },
+  remove: function(userId: string, pidgeon: Pidgeon) {
+    var user = Meteor.user();
+    return !!user;
+  }
+});
