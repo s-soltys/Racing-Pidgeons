@@ -3,6 +3,7 @@ import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {PidgeonForm} from '../form/pidgeon-form';
 import {RouterLink} from 'angular2/router';
 import {AccountsUI} from 'meteor-accounts-ui';
+import {MeteorComponent} from 'angular2-meteor';
 
 @Component({
     selector: 'pidgeons-list'
@@ -11,11 +12,14 @@ import {AccountsUI} from 'meteor-accounts-ui';
     templateUrl: 'client/pidgeon/list/pidgeon-list.html',
     directives: [PidgeonForm, RouterLink, AccountsUI]
 })
-export class PidgeonList {
+export class PidgeonList extends MeteorComponent {
     pidgeons: Mongo.Cursor<Pidgeon>;
     
     constructor () {
-        this.pidgeons = PidgeonCollection.find();
+        super();
+        this.subscribe('pidgeons', () => {
+            this.pidgeons = PidgeonCollection.find();
+        }, true);
     }
     
     remove (pidgeon: Pidgeon){
