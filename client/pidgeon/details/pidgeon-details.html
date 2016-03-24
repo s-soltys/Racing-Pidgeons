@@ -2,14 +2,14 @@
     <header>
         <a [routerLink]="['/PidgeonList']">Back</a>
     </header>
-    <form (submit)="save(pidgeon)">
-        <label>Number</label>
+    <form (submit)="save(pidgeon)" *ngIf='pidgeon'>
+        <label>Number:</label>
         <input type="text" [(ngModel)]="pidgeon.number">
-        <label>Color</label>
+        <label>Color:</label>
         <input type="text" [(ngModel)]="pidgeon.color">
-        <label>Sex</label>
+        <label>Sex:</label>
         <input type="text" [(ngModel)]="pidgeon.sex">
-        <label>Race</label>
+        <label>Race:</label>
         <input type="text" [(ngModel)]="pidgeon.race">
         <button type="submit">Save</button>
     </form>
