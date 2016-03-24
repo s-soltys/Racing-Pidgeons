@@ -1,7 +1,6 @@
 import {Component, View} from 'angular2/core';
 import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
-import {RouteParams} from 'angular2/router';
-import {RouterLink} from 'angular2/router';
+import {RouteParams, RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 
 @Component({
   selector: 'pidgeon-details'
@@ -10,6 +9,7 @@ import {RouterLink} from 'angular2/router';
   templateUrl: '/client/pidgeon/details/pidgeon-details.html',
   directives: [RouterLink]
 })
+@CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)
 export class PidgeonDetails {
     pidgeon: Pidgeon;
     

@@ -17,4 +17,8 @@ export class PidgeonList {
     constructor () {
         this.pidgeons = PidgeonCollection.find();
     }
+    
+    remove (pidgeon: Pidgeon){
+        PidgeonCollection.remove({ _id: pidgeon._id });
+    }
 }

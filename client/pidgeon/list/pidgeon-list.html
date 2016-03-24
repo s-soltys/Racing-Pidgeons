@@ -4,6 +4,8 @@
     <ul>
         <li *ngFor="#pidgeon of pidgeons">
             <a [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">{{ pidgeon.number }}</a>
+            <span>Owner {{ pidgeon.owner }}</span>
+            <button (click)="remove(pidgeon)">Remove</button>
         </li>
     </ul>
 </div>
