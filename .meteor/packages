@@ -21,3 +21,4 @@ barbatus:ng2-meteor-accounts
 accounts-facebook
 anti:fake
 reactive-var
+twbs:bootstrap
