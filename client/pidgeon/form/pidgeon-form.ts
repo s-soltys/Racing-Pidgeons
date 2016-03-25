@@ -13,12 +13,9 @@ import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 @InjectUser()
 export class PidgeonForm extends MeteorComponent {
     pidgeonForm: ControlGroup;
-    user: Meteor.User;
 
     constructor() {
         super();
-        
-        this.user = Meteor.user();
         
         var fb = new FormBuilder();
         this.pidgeonForm = fb.group({

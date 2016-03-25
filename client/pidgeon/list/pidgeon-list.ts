@@ -4,15 +4,18 @@ import {PidgeonForm} from '../form/pidgeon-form';
 import {RouterLink} from 'angular2/router';
 import {AccountsUI} from 'meteor-accounts-ui';
 import {MeteorComponent} from 'angular2-meteor';
+import {DisplayUser} from '../../lib/display-user.pipe';
 
 @Component({
     selector: 'pidgeons-list'
 })
 @View({
     templateUrl: 'client/pidgeon/list/pidgeon-list.html',
-    directives: [PidgeonForm, RouterLink, AccountsUI]
+    directives: [PidgeonForm, RouterLink, AccountsUI],
+    pipes: [DisplayUser]
 })
 export class PidgeonList extends MeteorComponent {
+    user: Meteor.User;
     pidgeons: Mongo.Cursor<Pidgeon>;
     sortField: ReactiveVar<string> = new ReactiveVar<string>('number');
     sortOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
@@ -23,6 +26,8 @@ export class PidgeonList extends MeteorComponent {
         super();
         
         this.autorun(() => {  
+            this.user = Meteor.user();
+            
             let options = this.createOptions();
             
             this.subscription = this.subscribe('pidgeons', options, this.numberSearch.get(), () => {

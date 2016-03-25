@@ -1,6 +1,7 @@
 <div>
     <accounts-ui></accounts-ui>
     <pidgeon-form></pidgeon-form>
+    <h1>{{ user | displayUser }}</h1>
     <div>
         <input type="text" #searchtext (keyup)="search(searchtext.value)" placeholder="Search by number">
     </div>
