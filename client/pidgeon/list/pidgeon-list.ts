@@ -14,12 +14,29 @@ import {MeteorComponent} from 'angular2-meteor';
 })
 export class PidgeonList extends MeteorComponent {
     pidgeons: Mongo.Cursor<Pidgeon>;
+    sortField: ReactiveVar<string> = new ReactiveVar<string>('number');
+    sortOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
     
     constructor () {
         super();
-        this.subscribe('pidgeons', () => {
-            this.pidgeons = PidgeonCollection.find();
-        }, true);
+        
+        this.autorun(() => {  
+            let options = this.createOptions();
+            
+            this.subscribe('pidgeons', options, () => {
+                this.pidgeons = PidgeonCollection.find({}, options);
+            }, true);
+        });
+    }
+    
+    setSortField(sortFieldName: string) {
+        this.sortField.set(sortFieldName);
+    }
+    
+    createOptions():any {
+        var sort: any = {};
+        sort[this.sortField.get()] = this.sortOrder.get();
+        return { sort: sort };
     }
     
     remove (pidgeon: Pidgeon){
