@@ -1,15 +1,27 @@
 import {PidgeonCollection, Pidgeon} from 'collections/pidgeons';
 
-export function loadPidgeons() {
-    if (PidgeonCollection.find().count() >= 0) return;
+function generatePidgeon(owner: string): Pidgeon {
+    return {
+        'number': <string>Fake.sentence(1),
+        'sex': <string>Fake.fromArray(['M', 'F', 'X']),
+        'color': <string>Fake.fromArray(['R', 'G', 'B']),
+        'owner': owner
+    };
+}
 
-    var pidgeons: Pidgeon[] = [
-        { 'number': '000', sex: 'X', color: 'NA', owner: null },
-        { 'number': '001', sex: 'X', color: 'NA', owner: null },
-        { 'number': '002', sex: 'X', color: 'NA', owner: null }
-    ];
-    
-    pidgeons.forEach(pidgeon => {
-        PidgeonCollection.insert(pidgeon);
+export function loadPidgeons() {
+    let numberOfPidgeonsPerUser = 30;
+    let users = Meteor.users.find();
+
+    users.forEach((user: Meteor.User) => {
+        let pidgeonsForUser = PidgeonCollection.find({ owner: user._id });
+
+        let itemsToAdd = numberOfPidgeonsPerUser - pidgeonsForUser.count();
+        if (itemsToAdd > 0) {
+            for (let i = 0; i < itemsToAdd; i++){
+                let pidgeon = generatePidgeon(user._id);
+                PidgeonCollection.insert(pidgeon);
+            }
+        }
     });
 };
