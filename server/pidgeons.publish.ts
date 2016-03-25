@@ -1,8 +1,10 @@
 import {PidgeonCollection} from '../collections/pidgeons';
 
-Meteor.publish('pidgeons', function(options: Object) {
+Meteor.publish('pidgeons', function(options: Object, numberSearch: string) {
+    var numberRegex = { '$regex': '.*' + (numberSearch || '') + '.*', '$options': 'i' };
+    
     return PidgeonCollection.find({
-        $and: [{ owner: this.userId }, { owner: { $exists: true } }]
+        $and: [{ number: numberRegex }, { owner: this.userId }, { owner: { $exists: true } }]
     }, options);
 });
 

@@ -16,6 +16,8 @@ export class PidgeonList extends MeteorComponent {
     pidgeons: Mongo.Cursor<Pidgeon>;
     sortField: ReactiveVar<string> = new ReactiveVar<string>('number');
     sortOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
+    numberSearch: ReactiveVar<string> = new ReactiveVar<string>('');
+    subscription: Meteor.SubscriptionHandle;
     
     constructor () {
         super();
@@ -23,7 +25,7 @@ export class PidgeonList extends MeteorComponent {
         this.autorun(() => {  
             let options = this.createOptions();
             
-            this.subscribe('pidgeons', options, () => {
+            this.subscription = this.subscribe('pidgeons', options, this.numberSearch.get(), () => {
                 this.pidgeons = PidgeonCollection.find({}, options);
             }, true);
         });
@@ -44,6 +46,6 @@ export class PidgeonList extends MeteorComponent {
     }
     
     search (searchtext: string) {
-        this.pidgeons = PidgeonCollection.find({ number: searchtext });
+        this.numberSearch.set(searchtext);
     }
 }

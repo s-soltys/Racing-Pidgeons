@@ -2,8 +2,7 @@
     <accounts-ui></accounts-ui>
     <pidgeon-form></pidgeon-form>
     <div>
-        <input type="text" #searchtext placeholder="Search by Location">
-        <button type="button" (click)="search(searchtext.value)">Search</button>
+        <input type="text" #searchtext (keyup)="search(searchtext.value)" placeholder="Search by number">
     </div>
     <table class="table table-striped">
         <tr>
