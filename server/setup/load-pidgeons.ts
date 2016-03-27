@@ -1,5 +1,10 @@
 import {PidgeonCollection, Pidgeon} from 'collections/pidgeons';
 
+declare module Fake {
+    export function sentence(length: number): string;
+    export function fromArray(params: Object[]): Object;
+}
+
 export module LoadPidgeons {
     function generatePidgeon(owner: string): Pidgeon {
         return {
