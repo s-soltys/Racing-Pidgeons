@@ -3,6 +3,7 @@ import {bootstrap} from 'angular2-meteor';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, APP_BASE_HREF, RouteConfig} from 'angular2/router';
 import {PidgeonList} from 'client/pidgeon/list/pidgeon-list';
 import {PidgeonDetails} from 'client/pidgeon/details/pidgeon-details';
+import {Dashboard} from 'client/dashboard/dashboard.component';
 import {AccountsUI} from 'meteor-accounts-ui';
 
 @Component({
@@ -13,8 +14,9 @@ import {AccountsUI} from 'meteor-accounts-ui';
     directives: [ROUTER_DIRECTIVES, AccountsUI]
 })
 @RouteConfig([
-    { path: '/', name: 'PidgeonList', component: PidgeonList },
-    { path: '/pidgeon/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails }
+    { path: '/', name: 'Dashboard', component: Dashboard },
+    { path: '/pidgeons', name: 'PidgeonList', component: PidgeonList },
+    { path: '/pidgeons/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails }
 ])
 class RacingPidgeons { }
 
