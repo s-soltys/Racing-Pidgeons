@@ -1,15 +1,16 @@
 import {Component, View, NgZone, provide} from 'angular2/core';
 import {bootstrap} from 'angular2-meteor';
-import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig, APP_BASE_HREF} from 'angular2/router';
+import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, APP_BASE_HREF, RouteConfig} from 'angular2/router';
 import {PidgeonList} from 'client/pidgeon/list/pidgeon-list';
 import {PidgeonDetails} from 'client/pidgeon/details/pidgeon-details';
+import {AccountsUI} from 'meteor-accounts-ui';
 
 @Component({
     selector: 'app'
 })
 @View({
-    template: '<router-outlet>',
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: 'client/app.html',
+    directives: [ROUTER_DIRECTIVES, AccountsUI]
 })
 @RouteConfig([
     { path: '/', name: 'PidgeonList', component: PidgeonList },
