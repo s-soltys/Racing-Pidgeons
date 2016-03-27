@@ -1,3 +1,4 @@
 .meteor/local
 .meteor/meteorite
 typings
+node_modules

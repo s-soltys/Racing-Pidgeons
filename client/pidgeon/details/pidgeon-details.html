@@ -1,16 +1,45 @@
-<div>
-    <header>
-        <a [routerLink]="['/PidgeonList']">Back</a>
-    </header>
-    <form (submit)="save(pidgeon)" *ngIf='pidgeon'>
-        <label>Number:</label>
-        <input type="text" [(ngModel)]="pidgeon.number">
-        <label>Color:</label>
-        <input type="text" [(ngModel)]="pidgeon.color">
-        <label>Sex:</label>
-        <input type="text" [(ngModel)]="pidgeon.sex">
-        <label>Race:</label>
-        <input type="text" [(ngModel)]="pidgeon.race">
-        <button type="submit">Save</button>
-    </form>
-</div>
+<form *ngIf="pidgeon">
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Number:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="pidgeon.number">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Color:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="pidgeon.color">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Sex:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="pidgeon.sex">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Race:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="pidgeon.race">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="row">
+                <a class="btn btn-primary" [routerLink]="['/PidgeonList']">Back</a>
+                <a class="btn btn-primary" (click)="save(pidgeon)">Save</a>
+                <a class="btn btn-primary" (click)="remove(pidgeon)">Remove</a>
+            </div>
+        </div>
+    </div>
+</form>

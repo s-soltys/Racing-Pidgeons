@@ -33,6 +33,10 @@ export class PidgeonDetails extends MeteorComponent {
         }, null, this.close.bind(this));
     }
     
+    remove (pidgeon: Pidgeon){
+        PidgeonCollection.remove({ _id: pidgeon._id });
+    }
+    
     close() {
         this.router.navigate(['/PidgeonList']);
     }

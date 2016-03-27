@@ -1,15 +1,14 @@
 <div>
-    <pidgeon-form></pidgeon-form>
     <h1>{{ user | displayUser }}</h1>
     <div>
         <input type="text" #searchtext (keyup)="search(searchtext.value)" placeholder="Search by number">
     </div>
     <table class="table table-striped">
         <tr>
-            <th><button (click)="setSortField('number')">Number</button></th>
-            <th><button (click)="setSortField('color')">Color</button></th>
-            <th><button (click)="setSortField('sex')">Sex</button></th>
-            <th><button (click)="setSortField('race')">Race</button></th>
+            <th><a (click)="setSortField('number')">Number</a></th>
+            <th><a (click)="setSortField('color')">Color</a></th>
+            <th><a (click)="setSortField('sex')">Sex</a></th>
+            <th><a (click)="setSortField('race')">Race</a></th>
             <th>Actions</th>
         </tr>
         <tr *ngFor="#pidgeon of pidgeons">
@@ -17,7 +16,7 @@
             <td>{{ pidgeon.color }}</td>
             <td>{{ pidgeon.sex }}</td>
             <td>R{{ pidgeon.race }}</td>
-            <td><button (click)="remove(pidgeon)">Remove</button></td>
+            <td><a class="btn btn-sm btn-danger" (click)="remove(pidgeon)">Remove</a></td>
         </tr>
     </table>
 </div>
