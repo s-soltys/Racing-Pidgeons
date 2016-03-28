@@ -6,7 +6,7 @@ import {MeteorComponent} from 'angular2-meteor';
     selector: 'dashboard'
 })
 @View({
-    templateUrl: '/client/dashboard/dashboard.html',
+    templateUrl: '/client/dashboard/dashboard.template.html',
     directives: [RouterLink]
 })
 @CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)

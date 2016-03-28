@@ -1,14 +1,12 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {Router, RouteParams, RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
+import {PidgeonForm} from '../form/pidgeon-form.component';
 
 @Component({
-    selector: 'pidgeon-details'
-})
-@View({
-    templateUrl: '/client/pidgeon/details/pidgeon-details.html',
-    directives: [RouterLink]
+    templateUrl: '/client/pidgeon/details/pidgeon-details.template.html',
+    directives: [RouterLink, PidgeonForm]
 })
 @CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)
 export class PidgeonDetails extends MeteorComponent {
@@ -16,6 +14,7 @@ export class PidgeonDetails extends MeteorComponent {
 
     constructor(private params: RouteParams, private router: Router) {
         super();
+        
         var pidgeonId = params.get('pidgeonId');
 
         this.subscribe('pidgeon', pidgeonId, () => {
@@ -30,11 +29,13 @@ export class PidgeonDetails extends MeteorComponent {
                 color: pidgeon.color,
                 sex: pidgeon.sex
             }
-        }, null, this.close.bind(this));
+        });
+        this.close();
     }
     
     remove (pidgeon: Pidgeon){
         PidgeonCollection.remove({ _id: pidgeon._id });
+        this.close();
     }
     
     close() {

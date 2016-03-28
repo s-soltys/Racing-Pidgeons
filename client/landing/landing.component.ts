@@ -6,7 +6,7 @@ import {MeteorComponent} from 'angular2-meteor';
     
 })
 @View({
-    templateUrl: '/client/landing/landing.html',
+    templateUrl: '/client/landing/landing.template.html',
     directives: [RouterLink]
 })
 export class LandingPage extends MeteorComponent {

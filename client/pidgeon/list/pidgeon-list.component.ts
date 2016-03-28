@@ -8,11 +8,14 @@ import {DisplayUser} from '../../lib/display-user.pipe';
     selector: 'pidgeons-list'
 })
 @View({
-    templateUrl: 'client/pidgeon/list/pidgeon-list.html',
+    templateUrl: 'client/pidgeon/list/pidgeon-list.template.html',
     directives: [RouterLink],
     pipes: [DisplayUser]
 })
-@CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)
+@CanActivate((next: ComponentInstruction, prev: ComponentInstruction) => {
+    let isUserPresent: boolean = Meteor.user() != null;
+    return isUserPresent;
+})
 export class PidgeonList extends MeteorComponent {
     user: Meteor.User;
     pidgeons: Mongo.Cursor<Pidgeon>;
