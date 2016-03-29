@@ -1,6 +1,7 @@
-import {Component, View} from 'angular2/core';
+import {Component, View, NgZone} from 'angular2/core';
 import {Router, RouteParams, RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
+import {PidgeonCollection} from '../../collections/pidgeons';
 
 @Component({
     selector: 'dashboard'
@@ -9,9 +10,19 @@ import {MeteorComponent} from 'angular2-meteor';
     templateUrl: '/client/dashboard/dashboard.template.html',
     directives: [RouterLink]
 })
-@CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)
+@CanActivate((next: ComponentInstruction, prev: ComponentInstruction) => {
+    return Meteor.user() != null;
+})
 export class Dashboard extends MeteorComponent {
-    constructor(private params: RouteParams, private router: Router) {
+    private pidgeonsCount: number;
+
+    constructor(private params: RouteParams, private router: Router, private zone: NgZone) {
         super();
+        
+        this.subscribe('pidgeons', {}, '', () => {
+            zone.run(() => {
+                this.pidgeonsCount = PidgeonCollection.find({}).count();
+            });
+        });
     }
 }
