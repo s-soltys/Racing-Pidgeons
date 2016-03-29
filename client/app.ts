@@ -7,13 +7,12 @@ import {PidgeonList} from './pidgeon/list/pidgeon-list.component';
 import {PidgeonDetails} from './pidgeon/details/pidgeon-details.component';
 import {Dashboard} from './dashboard/dashboard.component';
 import {LandingPage} from './landing/landing.component';
-import {DisplayUser} from './lib/display-user.pipe';
+import {AccountsUI} from './accounts/accounts.component';
 
 @Component({
     selector: 'app',
     templateUrl: 'client/app.html',
-    directives: [ROUTER_DIRECTIVES],
-    pipes: [DisplayUser]
+    directives: [ROUTER_DIRECTIVES, AccountsUI]
 })
 @RouteConfig([
     { path: '/', name: 'LandingPage', component: LandingPage },

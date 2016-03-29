@@ -1,0 +1,18 @@
+<div>
+    <strong>{{ user | displayUser }}</strong>
+    <div *ngIf="user != null" class="row">
+        <a class="btn btn-sm btn-primary" (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="user == null" class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <input type="text" #email placeholder="Email">
+                <input type="text" #password placeholder="Password">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-sm btn-primary" (click)="login(email.value, password.value)">Login</a>
+            <a class="btn btn-sm btn-primary" (click)="register(email.value, password.value)">Register</a>
+        </div>
+    </div>
+</div>
