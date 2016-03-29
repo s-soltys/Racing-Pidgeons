@@ -1,13 +1,11 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
 import {DisplayUser} from '../../lib/display-user.pipe';
 
 @Component({
-    selector: 'pidgeons-list'
-})
-@View({
+    selector: 'pidgeons-list',
     templateUrl: 'client/pidgeon/list/pidgeon-list.template.html',
     directives: [RouterLink],
     pipes: [DisplayUser]

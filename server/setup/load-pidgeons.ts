@@ -1,4 +1,4 @@
-import {PidgeonCollection, Pidgeon} from 'collections/pidgeons';
+import {PidgeonCollection, Pidgeon} from '../../collections/pidgeons';
 
 declare module Fake {
     export function sentence(length: number): string;

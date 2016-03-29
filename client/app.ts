@@ -1,20 +1,19 @@
-import {Component, View, NgZone, provide} from 'angular2/core';
-import {bootstrap} from 'angular2-meteor';
+import {Component, NgZone, provide} from 'angular2/core';
+import {bootstrap} from 'angular2-meteor-auto-bootstrap';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, APP_BASE_HREF, RouteConfig} from 'angular2/router';
-import {AccountsUI} from 'meteor-accounts-ui';
 
 // Components
-import {PidgeonList} from 'client/pidgeon/list/pidgeon-list.component';
-import {PidgeonDetails} from 'client/pidgeon/details/pidgeon-details.component';
-import {Dashboard} from 'client/dashboard/dashboard.component';
-import {LandingPage} from 'client/landing/landing.component';
+import {PidgeonList} from './pidgeon/list/pidgeon-list.component';
+import {PidgeonDetails} from './pidgeon/details/pidgeon-details.component';
+import {Dashboard} from './dashboard/dashboard.component';
+import {LandingPage} from './landing/landing.component';
+import {DisplayUser} from './lib/display-user.pipe';
 
 @Component({
-    selector: 'app'
-})
-@View({
+    selector: 'app',
     templateUrl: 'client/app.html',
-    directives: [ROUTER_DIRECTIVES, AccountsUI]
+    directives: [ROUTER_DIRECTIVES],
+    pipes: [DisplayUser]
 })
 @RouteConfig([
     { path: '/', name: 'LandingPage', component: LandingPage },
@@ -22,7 +21,13 @@ import {LandingPage} from 'client/landing/landing.component';
     { path: '/pidgeons', name: 'PidgeonList', component: PidgeonList },
     { path: '/pidgeons/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails }
 ])
-class RacingPidgeons { }
+class RacingPidgeons {
+    user: Meteor.User;
+    
+    constructor() {
+        this.user = Meteor.user();   
+    }
+}
 
 bootstrap(
     RacingPidgeons,

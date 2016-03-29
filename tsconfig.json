@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
         "experimentalDecorators": true,
-        "module": "system",
-        "target": "es5"
+        "module": "commonjs",
+        "target": "es5",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "sourceMap": true
     },
     "files": [
         "typings/main.d.ts",
-        "typings/angular2-meteor/angular2-meteor.d.ts",
-        "typings/ng2-meteor-accounts-ui/ng2-meteor-accounts-ui.d.ts",
-        "typings/ng2-meteor-accounts/ng2-meteor-accounts.d.ts",
         "client/app.ts",
         "server/main.ts"
     ]
