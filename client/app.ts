@@ -7,12 +7,12 @@ import {PidgeonList} from './pidgeon/list/pidgeon-list.component';
 import {PidgeonDetails} from './pidgeon/details/pidgeon-details.component';
 import {Dashboard} from './dashboard/dashboard.component';
 import {LandingPage} from './landing/landing.component';
-import {AccountsUI} from './accounts/accounts.component';
+import {AccountsForm} from './accounts/accounts.component';
 
 @Component({
     selector: 'app',
     templateUrl: 'client/app.html',
-    directives: [ROUTER_DIRECTIVES, AccountsUI]
+    directives: [ROUTER_DIRECTIVES, AccountsForm]
 })
 @RouteConfig([
     { path: '/', name: 'LandingPage', component: LandingPage },

@@ -7,11 +7,11 @@ import {MeteorComponent} from 'angular2-meteor';
 import {DisplayUser} from '../lib/display-user.pipe';
 
 @Component({
-    selector: 'accounts',
+    selector: 'accounts-form',
     templateUrl: 'client/accounts/accounts.template.html',
     pipes: [DisplayUser]
 })
-export class AccountsUI extends MeteorComponent {
+export class AccountsForm extends MeteorComponent {
     user: Meteor.User;
 
     constructor(private router: Router, private zone: NgZone) {
@@ -40,8 +40,10 @@ export class AccountsUI extends MeteorComponent {
 
     logout() {
         Meteor.logout(err => {
-            if (err) alert(err);
-            else this.router.navigate(['/LandingPage']);
+            this.zone.run(() => {
+                if (err) alert(err);
+                else this.router.navigate(['/LandingPage']); 
+            });
         });
     }
 }
