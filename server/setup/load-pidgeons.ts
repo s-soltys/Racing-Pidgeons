@@ -1,16 +1,12 @@
 import {PidgeonCollection, Pidgeon} from '../../collections/pidgeons';
-
-declare module Fake {
-    export function sentence(length: number): string;
-    export function fromArray(params: Object[]): Object;
-}
+import * as faker from 'faker';
 
 export module LoadPidgeons {
     export function generatePidgeon(owner: string): Pidgeon {
         return {
-            'number': <string>Fake.sentence(1),
-            'sex': <string>Fake.fromArray(['M', 'F', 'X']),
-            'color': <string>Fake.fromArray(['R', 'G', 'B']),
+            'number': faker.internet.ip(),
+            'sex': faker.internet.userName(),
+            'color': faker.internet.userName(),
             'owner': owner
         };
     }
