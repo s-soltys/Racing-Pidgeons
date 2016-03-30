@@ -6,7 +6,7 @@ declare module Fake {
 }
 
 export module LoadPidgeons {
-    function generatePidgeon(owner: string): Pidgeon {
+    export function generatePidgeon(owner: string): Pidgeon {
         return {
             'number': <string>Fake.sentence(1),
             'sex': <string>Fake.fromArray(['M', 'F', 'X']),

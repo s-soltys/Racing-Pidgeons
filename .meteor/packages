@@ -23,3 +23,5 @@ angular2-compilers
 anti:fake
 twbs:bootstrap
 less
+practicalmeteor:mocha
+practicalmeteor:chai

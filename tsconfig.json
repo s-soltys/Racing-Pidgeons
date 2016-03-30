@@ -7,9 +7,8 @@
         "emitDecoratorMetadata": true,
         "sourceMap": true
     },
-    "files": [
-        "typings/main.d.ts",
-        "client/app.ts",
-        "server/main.ts"
+    "exclude": [
+        "node_modules",
+        ".meteor"
     ]
 }
