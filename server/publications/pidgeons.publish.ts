@@ -1,4 +1,4 @@
-import {PidgeonCollection} from '../collections/pidgeons';
+import {PidgeonCollection} from './../../collections/pidgeons';
 
 Meteor.publish('pidgeons', function(options: Object, numberSearch: string) {
     var numberRegex = { '$regex': '.*' + (numberSearch || '') + '.*', '$options': 'i' };
