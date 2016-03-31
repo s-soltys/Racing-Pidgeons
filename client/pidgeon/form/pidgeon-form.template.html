@@ -1,18 +1,119 @@
-<div class="form-group">
-    <div class="row">
-        <div class="col-md-4"><label for="number" class="control-label">Number:</label></div>
-        <div class="col-md-8"><input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.number"></div>
+<form>
+    <div class="col-xs-12 col-sm-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Podstawowe dane</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Numer:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Kolor:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.color">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Sex:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.sex">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Year:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.year">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Race:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.race">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Name:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Eye color:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.eyeColor">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Eye color:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.eyeColor">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Dovecote:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.dovecote">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-4"><label for="number" class="control-label">Kolor:</label></div>
-        <div class="col-md-8"><input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.color"></div>
+    <div class="col-xs-12 col-sm-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Rodzice</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Father:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.father">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="number" class="control-label">Mother:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.mother">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-4"><label for="number" class="control-label">Rasa:</label></div>
-        <div class="col-md-8"><input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.race"></div>
+    <div class="col-xs-12 col-sm-2">
+        <div class="btn-group-vertical" role="group">
+            <a class="btn btn-primary" [routerLink]="['/PidgeonList']">Back</a>
+            <a class="btn btn-primary" (click)="save(pidgeon)">Save</a>
+            <a class="btn btn-primary" (click)="remove(pidgeon)">Remove</a>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-4"><label for="number" class="control-label">Płeć:</label></div>
-        <div class="col-md-8"><input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.sex"></div>
-    </div>
-</div>
+</form>

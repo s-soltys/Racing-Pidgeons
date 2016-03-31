@@ -21,25 +21,5 @@ export class PidgeonDetails extends MeteorComponent {
             this.pidgeon = PidgeonCollection.findOne(pidgeonId);
         }, true);
     }
-
-    save(pidgeon: Pidgeon) {
-        PidgeonCollection.update(pidgeon._id, {
-            $set: {
-                number: pidgeon.number,
-                color: pidgeon.color,
-                sex: pidgeon.sex
-            }
-        });
-        this.close();
-    }
-    
-    remove (pidgeon: Pidgeon){
-        PidgeonCollection.remove({ _id: pidgeon._id });
-        this.close();
-    }
-    
-    close() {
-        this.router.navigate(['/PidgeonList']);
-    }
     
 }
