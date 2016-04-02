@@ -1,11 +1,12 @@
 import {Component, Input} from 'angular2/core';
 import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {Router, RouterLink} from 'angular2/router';
+import {SexSelector} from '../../lib/display/sex-selector.component';
 
 @Component({
     selector: 'pidgeon-form',
     templateUrl: '/client/pidgeon/form/pidgeon-form.template.html',
-    directives: [RouterLink]
+    directives: [RouterLink, SexSelector]
 })
 export class PidgeonForm {
     @Input() pidgeon: Pidgeon;
@@ -32,5 +33,10 @@ export class PidgeonForm {
     
     close() {
         this.router.navigate(['/PidgeonList']);
+    }
+    
+    setSex(sex: string){
+        this.pidgeon.sex = sex;
+        //this.pidgeon = Object.assign({}, this.pidgeon, { sex: sex });
     }
 }
