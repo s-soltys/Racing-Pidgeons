@@ -5,14 +5,14 @@
     </div>
     <table class="table table-striped">
         <tr>
-            <th><a (click)="setSortField('number')">Number</a></th>
+            <th><a (click)="setSortField('idNumber')">Number</a></th>
             <th><a (click)="setSortField('color')">Color</a></th>
             <th><a (click)="setSortField('sex')">Sex</a></th>
             <th><a (click)="setSortField('race')">Race</a></th>
             <th>Actions</th>
         </tr>
         <tr *ngFor="#pidgeon of pidgeons">
-            <td><a [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">{{ pidgeon.number }}</a></td>
+            <td><a [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">{{ pidgeon.idNumber }}</a></td>
             <td>{{ pidgeon.color }}</td>
             <td>{{ pidgeon.sex }}</td>
             <td>R{{ pidgeon.race }}</td>

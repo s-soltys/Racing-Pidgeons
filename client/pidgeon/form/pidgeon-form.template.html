@@ -10,7 +10,7 @@
                         <label for="number" class="control-label">Numer:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.number">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.idNumber">
                     </div>
                 </div>
                 <div class="form-group">
@@ -91,7 +91,7 @@
                         <label for="number" class="control-label">Father:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.father">
+                        <pidgeon-selector [(pidgeonNumber)]="pidgeon.father"></pidgeon-selector>
                     </div>
                 </div>
                 <div class="form-group">
@@ -99,7 +99,7 @@
                         <label for="number" class="control-label">Mother:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.mother">
+                        <pidgeon-selector [(pidgeonNumber)]="pidgeon.mother"></pidgeon-selector>
                     </div>
                 </div>
             </div>

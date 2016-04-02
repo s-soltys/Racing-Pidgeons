@@ -2,10 +2,12 @@ export const PidgeonCollection = new Mongo.Collection<Pidgeon>('pidgeons');
 
 export interface Pidgeon {
     _id?: string;
-    number: string;
+    idNumber: string;
     sex: string;
     color: string;
     owner: string;
+    mother: string;
+    father: string;
 }
 
 PidgeonCollection.allow({

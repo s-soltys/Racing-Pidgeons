@@ -17,7 +17,7 @@ import {DisplayUser} from '../../lib/display-user.pipe';
 export class PidgeonList extends MeteorComponent {
     user: Meteor.User;
     pidgeons: Mongo.Cursor<Pidgeon>;
-    sortField: ReactiveVar<string> = new ReactiveVar<string>('number');
+    sortField: ReactiveVar<string> = new ReactiveVar<string>('serialNumber');
     sortOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
     numberSearch: ReactiveVar<string> = new ReactiveVar<string>('');
     subscription: Meteor.SubscriptionHandle;
