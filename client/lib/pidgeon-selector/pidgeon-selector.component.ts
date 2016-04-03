@@ -1,8 +1,9 @@
-import {Component, Input, Output, EventEmitter, ElementRef, OnInit} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ElementRef, ViewEncapsulation} from 'angular2/core';
 import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
 import {MeteorComponent} from 'angular2-meteor'
 
 @Component({
+    encapsulation: ViewEncapsulation.Emulated,
     selector: 'pidgeon-selector',
     templateUrl: '/client/lib/pidgeon-selector/pidgeon-selector.template.html'
 })
@@ -10,6 +11,7 @@ export class PidgeonSelector extends MeteorComponent {
     @Input() pidgeonNumber: string;
     @Output() pidgeonNumberChange = new EventEmitter<string>();
     
+    isFocused: boolean;
     pidgeons: Mongo.Cursor<Pidgeon>;
     numberSearch: ReactiveVar<string> = new ReactiveVar<string>('');
     
@@ -27,6 +29,14 @@ export class PidgeonSelector extends MeteorComponent {
                 }, options);
             }, true);
         });
+    }
+    
+    focus(){
+        this.isFocused = true;
+    }
+    
+    blur(){
+        setTimeout(() => this.isFocused = false, 10);
     }
     
     changePidgeonNumber(newNumber: string){
