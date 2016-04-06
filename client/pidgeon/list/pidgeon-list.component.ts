@@ -49,4 +49,8 @@ export class PidgeonList extends MeteorComponent {
     search (searchtext: string) {
         this.numberSearch.set(searchtext);
     }
+    
+    get pidgeonsCount():number {
+        return (this.pidgeons != null) ? this.pidgeons.count() : 0;
+    }
 }

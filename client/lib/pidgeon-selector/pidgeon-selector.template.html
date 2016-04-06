@@ -4,14 +4,12 @@
         z-index: 1000;
     }
 </style>
-<div class="form-group">
-    <input type="text" class="form-control" placeholder="Type in the pidgeon number..."
-        #number
-        (focus)="focus()"
-        (blur)="blur()"
-        [ngModel]="pidgeonNumber"
-        (ngModelChange)="changePidgeonNumber(number.value)">
-    <ul class="list-group floating-group" *ngIf="isFocused">
-        <li *ngFor="#pidgeon of pidgeons" class="list-group-item" (click)="changePidgeonNumber(pidgeon.idNumber)">{{ pidgeon.idNumber }}</li>
-    </ul>
-</div>
+<input type="text" class="form-control" placeholder="Type in the pidgeon number..."
+    #number
+    (focus)="focus()"
+    (blur)="blur()"
+    [ngModel]="pidgeonNumber"
+    (ngModelChange)="changePidgeonNumber(number.value)">
+<ul class="list-group floating-group" *ngIf="isFocused">
+    <li *ngFor="#pidgeon of pidgeons" class="list-group-item" (click)="changePidgeonNumber(pidgeon.idNumber)">{{ pidgeon.idNumber }}</li>
+</ul>

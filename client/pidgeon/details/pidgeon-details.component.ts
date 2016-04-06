@@ -22,4 +22,26 @@ export class PidgeonDetails extends MeteorComponent {
         }, true);
     }
     
+    save(pidgeon: Pidgeon) {
+        PidgeonCollection.update(pidgeon._id, {
+            $set: {
+                idNumber: pidgeon.idNumber,
+                color: pidgeon.color,
+                sex: pidgeon.sex,
+                father: pidgeon.father,
+                mother: pidgeon.mother
+            }
+        });
+        this.close();
+    }
+    
+    remove (pidgeon: Pidgeon){
+        PidgeonCollection.remove({ _id: pidgeon._id });
+        this.close();
+    }
+    
+    close() {
+        this.router.navigate(['/PidgeonList']);
+    }
+    
 }

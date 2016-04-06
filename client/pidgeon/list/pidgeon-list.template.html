@@ -1,22 +1,31 @@
 <div>
-    <h1>{{ user | displayUser }}</h1>
-    <div>
-        <input type="text" #searchtext (keyup)="search(searchtext.value)" placeholder="Search by number">
+    <div class="row">
+        <h1>Lista Twoich gołębii</h1>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <input id="number-search" type="text" class="form-control" #searchtext (keyup)="search(searchtext.value)" placeholder="Wyszukaj gołębia o numerze...">
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-primary" [routerLink]="['/PidgeonAdd']">Dodaj gołębia</a>
+        </div>
+    </div>
+    <hr>
     <table class="table table-striped">
         <tr>
-            <th><a (click)="setSortField('idNumber')">Number</a></th>
-            <th><a (click)="setSortField('color')">Color</a></th>
-            <th><a (click)="setSortField('sex')">Sex</a></th>
-            <th><a (click)="setSortField('race')">Race</a></th>
-            <th>Actions</th>
+            <th><a (click)="setSortField('idNumber')">Numer</a></th>
+            <th><a (click)="setSortField('color')">Kolor</a></th>
+            <th><a (click)="setSortField('sex')">Płeć</a></th>
+            <th><a (click)="setSortField('race')">Rasa</a></th>
+            <th>Akcje</th>
         </tr>
         <tr *ngFor="#pidgeon of pidgeons">
-            <td><a [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">{{ pidgeon.idNumber }}</a></td>
+            <td>{{ pidgeon.idNumber }}</td>
             <td>{{ pidgeon.color }}</td>
             <td>{{ pidgeon.sex }}</td>
             <td>R{{ pidgeon.race }}</td>
-            <td><a class="btn btn-sm btn-danger" (click)="remove(pidgeon)">Remove</a></td>
+            <td><a class="btn btn-primary" [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">Edytuj</a></td>
         </tr>
     </table>
 </div>

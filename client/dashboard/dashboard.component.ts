@@ -12,15 +12,7 @@ import {PidgeonCollection} from '../../collections/pidgeons';
     return Meteor.user() != null;
 })
 export class Dashboard extends MeteorComponent {
-    private pidgeonsCount: number;
-
     constructor(private params: RouteParams, private router: Router, private zone: NgZone) {
         super();
-        
-        this.subscribe('pidgeons', {}, '', () => {
-            zone.run(() => {
-                this.pidgeonsCount = PidgeonCollection.find({}).count();
-            });
-        });
     }
 }
