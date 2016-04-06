@@ -5,6 +5,7 @@ import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, APP_BASE_HREF, RouteConfig} from 'a
 // Components
 import {PidgeonList} from './pidgeon/list/pidgeon-list.component';
 import {PidgeonDetails} from './pidgeon/details/pidgeon-details.component';
+import {PidgeonAdd} from './pidgeon/add/pidgeon-add.component';
 import {Dashboard} from './dashboard/dashboard.component';
 import {LandingPage} from './landing/landing.component';
 import {AccountsForm} from './accounts/accounts.component';
@@ -18,7 +19,8 @@ import {AccountsForm} from './accounts/accounts.component';
     { path: '/', name: 'LandingPage', component: LandingPage },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/pidgeons', name: 'PidgeonList', component: PidgeonList },
-    { path: '/pidgeons/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails }
+    { path: '/pidgeons/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails },
+    { path: '/pidgeons/add', name: 'PidgeonAdd', component: PidgeonAdd }
 ])
 class RacingPidgeons {
     user: Meteor.User;
