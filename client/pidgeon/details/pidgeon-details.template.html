@@ -1,16 +1,13 @@
 <form *ngIf="pidgeon" class="form-horizontal" role="form">
     <div class="row">
-        <div class="col-md-6">
-            <h1>Dane gołębia</h1>
-            <h3>Wszystkie informacje o gołębiu</h3>
-        </div>
-        <div class="col-md-6">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary btn-lg" [routerLink]="['/PidgeonList']">Back</a>
-                <a class="btn btn-primary btn-lg" (click)="save(pidgeon)">Save</a>
-                <a class="btn btn-primary btn-lg" (click)="remove(pidgeon)">Remove</a>
-            </div>
+        <h1>Dane gołębia</h1>
+    </div>
+    <div class="row">
+        <h3 class="pull-left">Wszystkie informacje o gołębiu</h3>
+        <div class="btn-group pull-right" role="group">
+            <a class="btn btn-primary btn-lg" [routerLink]="['/PidgeonList']">Back</a>
+            <a class="btn btn-primary btn-lg" (click)="save(pidgeon)">Save</a>
+            <a class="btn btn-primary btn-lg" (click)="remove(pidgeon)">Remove</a>
         </div>
     </div>
     <hr>

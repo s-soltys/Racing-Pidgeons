@@ -36,7 +36,7 @@ export class PidgeonSelector extends MeteorComponent {
     }
     
     blur(){
-        setTimeout(() => this.isFocused = false, 10);
+        setTimeout(() => this.isFocused = false, 100);
     }
     
     changePidgeonNumber(newNumber: string){
