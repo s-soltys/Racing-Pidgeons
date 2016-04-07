@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Sex:</label>
+                        <label for="number" class="control-label">Płeć:</label>
                     </div>
                     <div class="col-md-8">
                         <sex-selector (select)="setSex($event)"></sex-selector>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Year:</label>
+                        <label for="number" class="control-label">Rocznik:</label>
                     </div>
                     <div class="col-md-8">
                         <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.year">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Race:</label>
+                        <label for="number" class="control-label">Rasa:</label>
                     </div>
                     <div class="col-md-8">
                         <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.race">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Name:</label>
+                        <label for="number" class="control-label">Nazwa:</label>
                     </div>
                     <div class="col-md-8">
                         <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.name">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Eye color:</label>
+                        <label for="number" class="control-label">Kolor oka:</label>
                     </div>
                     <div class="col-md-8">
                         <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.eyeColor">
@@ -63,15 +63,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <label for="number" class="control-label">Eye color:</label>
-                    </div>
-                    <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.eyeColor">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <label for="number" class="control-label">Dovecote:</label>
+                        <label for="number" class="control-label">Gołębnik:</label>
                     </div>
                     <div class="col-md-8">
                         <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.dovecote">
@@ -102,6 +94,30 @@
                         <pidgeon-selector [(pidgeonNumber)]="pidgeon.mother"></pidgeon-selector>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label for="number" class="control-label">Status:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="racing"> Loty
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="breeder"> Rozpłód
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="archive"> Archiwum
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Zdjęcie</h3>
+            </div>
+            <div class="panel-body">
+
             </div>
         </div>
     </div>

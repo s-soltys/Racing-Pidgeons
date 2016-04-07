@@ -8,6 +8,7 @@ export interface Pidgeon {
     owner: string;
     mother: string;
     father: string;
+    status?: string;
 }
 
 PidgeonCollection.allow({
