@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
-import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
+import {PigeonCollection, Pigeon} from '../../../collections/pigeons';
 import {RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
 import {DisplayUser} from '../../lib/display-user.pipe';
 
 @Component({
-    selector: 'pidgeons-list',
-    templateUrl: 'client/pidgeon/list/pidgeon-list.template.html',
+    selector: 'pigeons-list',
+    templateUrl: 'client/pigeon/list/pigeon-list.template.html',
     directives: [RouterLink],
     pipes: [DisplayUser]
 })
@@ -14,9 +14,9 @@ import {DisplayUser} from '../../lib/display-user.pipe';
     let isUserPresent: boolean = Meteor.user() != null;
     return isUserPresent;
 })
-export class PidgeonList extends MeteorComponent {
+export class PigeonList extends MeteorComponent {
     user: Meteor.User;
-    pidgeons: Mongo.Cursor<Pidgeon>;
+    pigeons: Mongo.Cursor<Pigeon>;
     sortField: ReactiveVar<string> = new ReactiveVar<string>('serialNumber');
     sortOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
     numberSearch: ReactiveVar<string> = new ReactiveVar<string>('');
@@ -30,8 +30,8 @@ export class PidgeonList extends MeteorComponent {
             
             let options = this.createOptions();
             
-            this.subscription = this.subscribe('pidgeons', options, this.numberSearch.get(), () => {
-                this.pidgeons = PidgeonCollection.find({}, options);
+            this.subscription = this.subscribe('pigeons', options, this.numberSearch.get(), () => {
+                this.pigeons = PigeonCollection.find({}, options);
             }, true);
         });
     }
@@ -50,7 +50,7 @@ export class PidgeonList extends MeteorComponent {
         this.numberSearch.set(searchtext);
     }
     
-    get pidgeonsCount():number {
-        return (this.pidgeons != null) ? this.pidgeons.count() : 0;
+    get pigeonsCount():number {
+        return (this.pigeons != null) ? this.pigeons.count() : 0;
     }
 }

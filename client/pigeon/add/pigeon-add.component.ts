@@ -1,21 +1,21 @@
 import {Component} from 'angular2/core';
-import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
+import {PigeonCollection, Pigeon} from '../../../collections/pigeons';
 import {Router, RouteParams, RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
-import {PidgeonForm} from '../form/pidgeon-form.component';
+import {PigeonForm} from '../form/pigeon-form.component';
 
 @Component({
-    templateUrl: '/client/pidgeon/details/pidgeon-details.template.html',
-    directives: [RouterLink, PidgeonForm]
+    templateUrl: '/client/pigeon/details/pigeon-details.template.html',
+    directives: [RouterLink, PigeonForm]
 })
 @CanActivate((instruction: ComponentInstruction) => Meteor.user() != null)
-export class PidgeonAdd extends MeteorComponent {
-    pidgeon: Pidgeon;
+export class PigeonAdd extends MeteorComponent {
+    pigeon: Pigeon;
 
     constructor(private params: RouteParams, private router: Router) {
         super();
         
-        this.pidgeon = {
+        this.pigeon = {
             idNumber: null,
             sex: null,
             color: null,
@@ -25,14 +25,14 @@ export class PidgeonAdd extends MeteorComponent {
         };
     }
     
-    save(pidgeon: Pidgeon) {
-        pidgeon.owner = Meteor.userId();
-        var pidgeonId = PidgeonCollection.insert(pidgeon);
+    save(pigeon: Pigeon) {
+        pigeon.owner = Meteor.userId();
+        var pigeonId = PigeonCollection.insert(pigeon);
         this.close();
     }
     
     close() {
-        this.router.navigate(['/PidgeonList']);
+        this.router.navigate(['/PigeonList']);
     }
     
 }

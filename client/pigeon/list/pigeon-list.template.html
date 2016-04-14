@@ -8,7 +8,7 @@
             <input id="number-search" type="text" class="form-control" #searchtext (keyup)="search(searchtext.value)" placeholder="Wyszukaj gołębia o numerze...">
         </div>
         <div class="col-md-4">
-            <a class="btn btn-primary" [routerLink]="['/PidgeonAdd']">Dodaj gołębia</a>
+            <a class="btn btn-primary" [routerLink]="['/PigeonAdd']">Dodaj gołębia</a>
         </div>
     </div>
     <hr>
@@ -20,12 +20,12 @@
             <th><a (click)="setSortField('race')">Rasa</a></th>
             <th>Akcje</th>
         </tr>
-        <tr *ngFor="#pidgeon of pidgeons">
-            <td>{{ pidgeon.idNumber }}</td>
-            <td>{{ pidgeon.color }}</td>
-            <td>{{ pidgeon.sex }}</td>
-            <td>R{{ pidgeon.race }}</td>
-            <td><a class="btn btn-primary" [routerLink]="['/PidgeonDetails', {pidgeonId: pidgeon._id}]">Edytuj</a></td>
+        <tr *ngFor="#pigeon of pigeons">
+            <td>{{ pigeon.idNumber }}</td>
+            <td>{{ pigeon.color }}</td>
+            <td>{{ pigeon.sex }}</td>
+            <td>R{{ pigeon.race }}</td>
+            <td><a class="btn btn-primary" [routerLink]="['/PigeonDetails', {pigeonId: pigeon._id}]">Edytuj</a></td>
         </tr>
     </table>
 </div>

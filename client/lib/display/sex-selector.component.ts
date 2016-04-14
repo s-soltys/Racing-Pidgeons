@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, ElementRef, OnInit} from 'angular2/core';
-import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
+import {PigeonCollection, Pigeon} from '../../../collections/pigeons';
 
 @Component({
     selector: 'sex-selector',

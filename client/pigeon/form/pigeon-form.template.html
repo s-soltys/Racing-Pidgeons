@@ -10,7 +10,7 @@
                         <label for="number" class="control-label">Numer:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.idNumber">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.idNumber">
                     </div>
                 </div>
                 <div class="form-group">
@@ -18,7 +18,7 @@
                         <label for="number" class="control-label">Kolor:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.color">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.color">
                     </div>
                 </div>
                 <div class="form-group">
@@ -34,7 +34,7 @@
                         <label for="number" class="control-label">Rocznik:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.year">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.year">
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,7 +42,7 @@
                         <label for="number" class="control-label">Rasa:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.race">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.race">
                     </div>
                 </div>
                 <div class="form-group">
@@ -50,7 +50,7 @@
                         <label for="number" class="control-label">Nazwa:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.name">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.name">
                     </div>
                 </div>
                 <div class="form-group">
@@ -58,7 +58,7 @@
                         <label for="number" class="control-label">Kolor oka:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.eyeColor">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.eyeColor">
                     </div>
                 </div>
                 <div class="form-group">
@@ -66,7 +66,7 @@
                         <label for="number" class="control-label">Gołębnik:</label>
                     </div>
                     <div class="col-md-8">
-                        <input id="number" class="form-control" type="text" [(ngModel)]="pidgeon.dovecote">
+                        <input id="number" class="form-control" type="text" [(ngModel)]="pigeon.dovecote">
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                         <label for="number" class="control-label">Father:</label>
                     </div>
                     <div class="col-md-8">
-                        <pidgeon-selector [(pidgeonNumber)]="pidgeon.father"></pidgeon-selector>
+                        <pigeon-selector [(pigeonNumber)]="pigeon.father"></pigeon-selector>
                     </div>
                 </div>
                 <div class="form-group">
@@ -91,7 +91,7 @@
                         <label for="number" class="control-label">Mother:</label>
                     </div>
                     <div class="col-md-8">
-                        <pidgeon-selector [(pidgeonNumber)]="pidgeon.mother"></pidgeon-selector>
+                        <pigeon-selector [(pigeonNumber)]="pigeon.mother"></pigeon-selector>
                     </div>
                 </div>
                 <div class="form-group">

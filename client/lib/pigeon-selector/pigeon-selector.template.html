@@ -8,8 +8,8 @@
     #number
     (focus)="focus()"
     (blur)="blur()"
-    [ngModel]="pidgeonNumber"
-    (ngModelChange)="changePidgeonNumber(number.value)">
+    [ngModel]="pigeonNumber"
+    (ngModelChange)="changePigeonNumber(number.value)">
 <ul class="list-group floating-group" *ngIf="isFocused">
-    <li *ngFor="#pidgeon of pidgeons" class="list-group-item" (click)="changePidgeonNumber(pidgeon.idNumber)">{{ pidgeon.idNumber }}</li>
+    <li *ngFor="#pigeon of pigeons" class="list-group-item" (click)="changePigeonNumber(pigeon.idNumber)">{{ pigeon.idNumber }}</li>
 </ul>

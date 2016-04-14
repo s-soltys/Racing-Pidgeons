@@ -1,5 +1,5 @@
-# Racing-Pidgeons
-A web application for people who breed racing pidgeons.
+# Racing-Pigeons
+A web application for people who breed racing pigeons.
 
 ## Tech stack
 * Meteor

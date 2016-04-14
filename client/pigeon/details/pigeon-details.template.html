@@ -1,0 +1,17 @@
+<form *ngIf="pigeon" class="form-horizontal" role="form">
+    <div class="row">
+        <h1>Dane gołębia</h1>
+    </div>
+    <div class="row">
+        <h3 class="pull-left">Wszystkie informacje o gołębiu</h3>
+        <div class="btn-group pull-right" role="group">
+            <a class="btn btn-primary btn-lg" [routerLink]="['/PigeonList']">Back</a>
+            <a class="btn btn-primary btn-lg" (click)="save(pigeon)">Save</a>
+            <a class="btn btn-primary btn-lg" (click)="remove(pigeon)">Remove</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <pigeon-form [pigeon]="pigeon"></pigeon-form>
+    </div>
+</form>

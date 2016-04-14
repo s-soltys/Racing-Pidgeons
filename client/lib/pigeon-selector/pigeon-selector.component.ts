@@ -1,18 +1,18 @@
 import {Component, Input, Output, EventEmitter, ElementRef, ViewEncapsulation} from 'angular2/core';
-import {PidgeonCollection, Pidgeon} from '../../../collections/pidgeons';
+import {PigeonCollection, Pigeon} from '../../../collections/pigeons';
 import {MeteorComponent} from 'angular2-meteor'
 
 @Component({
     encapsulation: ViewEncapsulation.Emulated,
-    selector: 'pidgeon-selector',
-    templateUrl: '/client/lib/pidgeon-selector/pidgeon-selector.template.html'
+    selector: 'pigeon-selector',
+    templateUrl: '/client/lib/pigeon-selector/pigeon-selector.template.html'
 })
-export class PidgeonSelector extends MeteorComponent {
-    @Input() pidgeonNumber: string;
-    @Output() pidgeonNumberChange = new EventEmitter<string>();
+export class PigeonSelector extends MeteorComponent {
+    @Input() pigeonNumber: string;
+    @Output() pigeonNumberChange = new EventEmitter<string>();
     
     isFocused: boolean;
-    pidgeons: Mongo.Cursor<Pidgeon>;
+    pigeons: Mongo.Cursor<Pigeon>;
     numberSearch: ReactiveVar<string> = new ReactiveVar<string>('');
     
     constructor(){
@@ -23,8 +23,8 @@ export class PidgeonSelector extends MeteorComponent {
             
             var numberRegex = { '$regex': '.*' + (this.numberSearch.get() || '') + '.*', '$options': 'i' };
             
-            this.subscribe('pidgeons', options, this.numberSearch.get(), () => {
-                this.pidgeons = PidgeonCollection.find({
+            this.subscribe('pigeons', options, this.numberSearch.get(), () => {
+                this.pigeons = PigeonCollection.find({
                     $and: [{ idNumber: numberRegex }]
                 }, options);
             }, true);
@@ -39,9 +39,9 @@ export class PidgeonSelector extends MeteorComponent {
         setTimeout(() => this.isFocused = false, 100);
     }
     
-    changePidgeonNumber(newNumber: string){
+    changePigeonNumber(newNumber: string){
         this.numberSearch.set(newNumber);
-        this.pidgeonNumberChange.emit(newNumber);
+        this.pigeonNumberChange.emit(newNumber);
     }
     
 }

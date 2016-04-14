@@ -3,9 +3,9 @@ import {bootstrap} from 'angular2-meteor-auto-bootstrap';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, APP_BASE_HREF, RouteConfig} from 'angular2/router';
 
 // Components
-import {PidgeonList} from './pidgeon/list/pidgeon-list.component';
-import {PidgeonDetails} from './pidgeon/details/pidgeon-details.component';
-import {PidgeonAdd} from './pidgeon/add/pidgeon-add.component';
+import {PigeonList} from './pigeon/list/pigeon-list.component';
+import {PigeonDetails} from './pigeon/details/pigeon-details.component';
+import {PigeonAdd} from './pigeon/add/pigeon-add.component';
 import {Dashboard} from './dashboard/dashboard.component';
 import {LandingPage} from './landing/landing.component';
 import {AccountsForm} from './accounts/accounts.component';
@@ -18,11 +18,11 @@ import {AccountsForm} from './accounts/accounts.component';
 @RouteConfig([
     { path: '/', name: 'LandingPage', component: LandingPage },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-    { path: '/pidgeons', name: 'PidgeonList', component: PidgeonList },
-    { path: '/pidgeons/:pidgeonId', name: 'PidgeonDetails', component: PidgeonDetails },
-    { path: '/pidgeons/add', name: 'PidgeonAdd', component: PidgeonAdd }
+    { path: '/pigeons', name: 'PigeonList', component: PigeonList },
+    { path: '/pigeons/:pigeonId', name: 'PigeonDetails', component: PigeonDetails },
+    { path: '/pigeons/add', name: 'PigeonAdd', component: PigeonAdd }
 ])
-class RacingPidgeons {
+class RacingPigeons {
     user: Meteor.User;
     
     constructor() {
@@ -31,6 +31,6 @@ class RacingPidgeons {
 }
 
 bootstrap(
-    RacingPidgeons,
+    RacingPigeons,
     [ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]
     );

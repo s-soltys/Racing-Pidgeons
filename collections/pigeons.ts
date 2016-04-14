@@ -1,6 +1,6 @@
-export const PidgeonCollection = new Mongo.Collection<Pidgeon>('pidgeons');
+export const PigeonCollection = new Mongo.Collection<Pigeon>('pigeons');
 
-export interface Pidgeon {
+export interface Pigeon {
     _id?: string;
     idNumber: string;
     sex: string;
@@ -11,16 +11,16 @@ export interface Pidgeon {
     status?: string;
 }
 
-PidgeonCollection.allow({
-    insert: function(userId: string, pidgeon: Pidgeon) {
+PigeonCollection.allow({
+    insert: function(userId: string, pigeon: Pigeon) {
         var user = Meteor.user();
         return !!user;
     },
-    update: function(userId: string, pidgeon: Pidgeon) {
+    update: function(userId: string, pigeon: Pigeon) {
         var user = Meteor.user();
         return !!user;
     },
-    remove: function(userId: string, pidgeon: Pidgeon) {
+    remove: function(userId: string, pigeon: Pigeon) {
         var user = Meteor.user();
         return !!user;
     }

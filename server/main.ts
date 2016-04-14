@@ -1,7 +1,7 @@
-import '../collections/pidgeons';
-import './publications/pidgeons.publish';
-import {LoadPidgeons} from './setup/load-pidgeons.startup';
+import '../collections/pigeons';
+import './publications/pigeons.publish';
+import {LoadPigeons} from './setup/load-pigeons.startup';
  
 Meteor.startup(() => {
-    LoadPidgeons.insertFakePidgeons();
+    LoadPigeons.insertFakePigeons();
 });

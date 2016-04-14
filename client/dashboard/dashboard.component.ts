@@ -1,7 +1,7 @@
 import {Component, NgZone} from 'angular2/core';
 import {Router, RouteParams, RouterLink, CanActivate, ComponentInstruction} from 'angular2/router';
 import {MeteorComponent} from 'angular2-meteor';
-import {PidgeonCollection} from '../../collections/pidgeons';
+import {PigeonCollection} from '../../collections/pigeons';
 
 @Component({
     selector: 'dashboard',
